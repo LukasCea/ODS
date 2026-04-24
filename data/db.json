@@ -1,0 +1,9 @@
+{
+  "proyectos": [
+    {
+      "id": 1,
+      "titulo": "Energía Limpia",
+      "descripcion": "Instalación de placas solares."
+    }
+  ]
+}
