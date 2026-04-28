@@ -1,32 +1,131 @@
-body{
-    margin: 0px;
-}
-header{
-    background-color: #333;
-    color: white;
-    font-size: 18px;
-    padding: 30px;
-    margin-bottom: 30px;
+/* Importar una fuente más moderna y profesional */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+:root {
+    --fondo-principal: #121417;     /* Negro azulado muy oscuro */
+    --fondo-secundario: #1e2126;    /* Gris oscuro para tarjetas o secciones */
+    --detalle-amarillo: #f1d592;    /* Amarillo suave / Crema */
+    --texto-principal: #f8f9fa;     /* Blanco casi puro */
+    --texto-secundario: #adb5bd;    /* Gris claro para párrafos */
+    --transicion: all 0.3s ease;
 }
 
-footer{
-    background-color: #333;
-    color: white;
-    font-size: 18px;
-    padding: 30px;
-    text-align: center;
-}
-
-section{
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--fondo-principal);
+    color: var(--texto-principal);
+    line-height: 1.6;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-left: 200px;
-    margin-right: 200px;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-img{
-    width: 200px;
-    height: 200px;
-    padding: 15px;
+/* --- HEADER & NAVEGACIÓN --- */
+header {
+    background-color: rgba(18, 20, 23, 0.95);
+    border-bottom: 1px solid #333;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.navbar a {
+    color: var(--texto-secundario);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: var(--transicion);
+}
+
+.navbar a:hover {
+    color: var(--detalle-amarillo);
+    background-color: rgba(241, 213, 146, 0.1);
+}
+
+/* --- SECCIONES --- */
+main {
+    max-width: 1000px; /* Controla el ancho máximo para que no se estire demasiado */
+    margin: 40px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 60px;
+    background-color: var(--fondo-secundario);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Alternar orden en secciones para dinamismo visual */
+section:nth-of-type(2) {
+    flex-direction: row-reverse;
+}
+
+/* --- ELEMENTOS --- */
+h2 {
+    color: var(--detalle-amarillo);
+    font-weight: 600;
+    margin-top: 0;
+    border-left: 4px solid var(--detalle-amarillo);
+    padding-left: 15px;
+}
+
+p {
+    color: var(--texto-secundario);
+    font-size: 1.1rem;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover; /* Evita que la imagen se deforme */
+    border-radius: 12px;
+    border: 2px solid var(--detalle-amarillo);
+    filter: grayscale(20%);
+    transition: var(--transicion);
+}
+
+img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--fondo-secundario);
+    color: var(--texto-secundario);
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid #333;
+    font-size: 14px;
+}
+
+/* --- RESPONSIVE (Móviles) --- */
+@media (max-width: 768px) {
+    section {
+        flex-direction: column !important;
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align: center;
+    }
+    
+    .navbar {
+        gap: 5px;
+    }
 }
