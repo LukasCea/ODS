@@ -72,10 +72,6 @@ section {
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* Alternar orden en secciones para dinamismo visual */
-section:nth-of-type(2) {
-    flex-direction: row-reverse;
-}
 
 /* --- ELEMENTOS --- */
 h1 {
