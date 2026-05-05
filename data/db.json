@@ -1,22 +1,140 @@
 {
-  "proyectos": [
+  "contenido_inicial": [
     {
       "id": 1,
-      "titulo": "Energía Limpia",
-      "descripcion": "Instalación de placas solares."
+      "titulo": "Descripcion personal",
+      "descripcion": "Soy un estudioante de Desarrollo de Aplicaciones Web de ITB, con un entusiasmo por la tecnologia, nacido en Lituania, en el 2007 y mudado a España en el 2012."
+    },
+    {
+      "id": 2,
+      "titulo": "Objetivo de la pagina web",
+      "descripcion": "El objetivo de esta pagina web es la explicacion de los Objetivos de Desarrollo Sostenible (ODS) y su importancia en el contexto actual, las ODS escogidas han sido: (Energia asequible y no contaminante) y (Vida de ecosistemas terrestres. Tambien aportare acciones sostenibles en mi web y propronde opciones para una vida mas sostenible."
     }
   ],
 
-  "acciones": [
+  "explicacionODS": [
     {
       "id": 1,
-      "nombre": "Kit de herramientas de jardín",
-      "descripcion": "Disponible para préstamo para fomentar el uso compartido.",
-      "categoria": "Alquiler/Préstamo",
-      "ods_relacionado": 12,
-      "estado": "Disponible",
-      "usuario_contacto": "vecino_eco@mail.com",
-      "fecha_registro": "2024-03-20"
+      "titulo": "Explicacion de los ODS escogidos",
+      "descripcion": ""
+    },
+    {
+      "id": 2,
+      "titulo": "ODS 7: Energia asequible y no contaminante",
+      "descripcion": "El ODS 7 se centra en garantizar el acceso a una energía asequible, confiable, sostenible y moderna para todos. Este objetivo es crucial para el desarrollo sostenible, ya que la energía es fundamental para el crecimiento económico, la reducción de la pobreza y la mejora de la calidad de vida. El ODS 7 busca aumentar la proporción de energía renovable en la matriz energética global, mejorar la eficiencia energética y promover el acceso universal a servicios energéticos modernos."
+    },
+    {
+      "id": 3,
+      "titulo": "ODS 15: Vida de ecosistemas terrestres",
+      "descripcion": "El ODS 15 se enfoca en proteger, restaurar y promover el uso sostenible de los ecosistemas terrestres, gestionar de manera sostenible los bosques, combatir la desertificación, detener e invertir la degradación de la tierra y detener la pérdida de biodiversidad. Este objetivo es esencial para mantener la salud del planeta, ya que los ecosistemas terrestres proporcionan servicios vitales como la regulación del clima, la purificación del agua, la producción de alimentos y el hábitat para la biodiversidad. El ODS 15 busca conservar y restaurar los ecosistemas terrestres para garantizar un futuro sostenible para las generaciones presentes y futuras."
+    }
+  ],
+
+  "problemasODS": [
+    {
+      "id": 1,
+      "titulo": "Problemas relacionados con los ODS escogidos",
+      "descripcion": ""
+    },
+    {
+      "id": 2,
+      "titulo": "Problemas relacionados con el ODS 7",
+      "descripcion": "El ODS 7 enfrenta varios desafíos, como la dependencia de los combustibles fósiles, la falta de acceso a la energía en muchas regiones del mundo, la desigualdad en el acceso a la energía entre países y dentro de ellos, y la necesidad de una transición rápida hacia fuentes de energía renovable para mitigar el cambio climático."
+    },
+    {
+      "id": 3,
+      "titulo": "Problemas relacionados con el ODS 15",
+      "descripcion": "El ODS 15 enfrenta problemas como la deforestación, la degradación del suelo, la pérdida de biodiversidad, la desertificación y el cambio climático. Estos problemas amenazan la salud de los ecosistemas terrestres y ponen en riesgo los servicios que proporcionan, lo que afecta negativamente a las comunidades humanas y a la vida en el planeta."
+    }
+  ],
+
+  "practicasSostenibles": [
+    {
+      "id": 1,
+      "titulo": "Practicas sostenibles relacionadas con los ODS escogidos",
+      "descripcion": ""
+    },
+    {
+      "id": 2,
+      "titulo": "Practicas sostenibles para el ODS 7",
+      "descripcion": "Para contribuir al ODS 7, se pueden adoptar prácticas como el uso de energía renovable (solar, eólica, hidroeléctrica), la mejora de la eficiencia energética en hogares y empresas, la promoción del transporte sostenible (bicicletas, vehículos eléctricos) y la implementación de políticas que fomenten la transición hacia una matriz energética más limpia."
+    },
+    {
+      "id": 3,
+      "titulo": "Practicas sostenibles para el ODS 15",
+      "descripcion": "Para apoyar el ODS 15, se pueden implementar prácticas como la reforestación, la conservación de áreas naturales, la agricultura sostenible, la reducción del uso de pesticidas y fertilizantes químicos, y la promoción de la biodiversidad a través de jardines urbanos y espacios verdes."
+    }
+  ],
+
+  "programacionEficiente": [
+    {
+      "id": 1,
+      "titulo": "Programacion eficiente relacionada con los ODS escogidos",
+      "descripcion": ""
+    },
+    {
+      "id": 2,
+      "titulo": "Programacion eficiente para el ODS 7",
+      "descripcion": "En el contexto del ODS 7, la programación eficiente puede incluir el desarrollo de software para optimizar el uso de energía en dispositivos electrónicos, la creación de aplicaciones que promuevan el uso de transporte sostenible o la implementación de algoritmos que mejoren la eficiencia energética en sistemas de gestión de energía."
+    },
+    {
+      "id": 3,
+      "titulo": "Programacion eficiente para el ODS 15",
+      "descripcion": "Para el ODS 15, la programación eficiente puede involucrar el desarrollo de herramientas para monitorear y analizar la biodiversidad, la creación de plataformas para promover prácticas agrícolas sostenibles o la implementación de sistemas de gestión de recursos naturales que ayuden a conservar los ecosistemas terrestres."
+    }
+  ],
+
+  "analisisEmpresa": [
+    {
+      "id": 1,
+      "titulo": "Analisis de una empresa relacionada con los ODS escogidos",
+      "descripcion": ""
+    },
+    {
+      "id": 2,
+      "titulo": "Analisis de una empresa relacionada con el ODS 7",
+      "descripcion": "Una empresa que contribuye al ODS 7 es Tesla, Inc. Tesla se dedica a la fabricación de vehículos eléctricos y soluciones de energía renovable. La empresa ha revolucionado la industria automotriz al ofrecer vehículos eléctricos de alto rendimiento y ha promovido la adopción de energías limpias a través de sus productos solares y sistemas de almacenamiento de energía."
+    },
+    {
+      "id": 3,
+      "titulo": "Analisis de una empresa relacionada con el ODS 15",
+      "descripcion": "Una empresa que apoya el ODS 15 es Patagonia, Inc. Patagonia es una empresa de ropa y equipo para actividades al aire libre que se compromete a la sostenibilidad ambiental. La empresa utiliza materiales reciclados en sus productos, promueve prácticas agrícolas sostenibles y dona parte de sus ganancias a organizaciones que trabajan en la conservación de los ecosistemas terrestres."
+    }
+  ],
+
+  "herramientasEficienciaEnergetica": [
+    {
+      "id": 1,
+      "titulo": "Herramientas para la eficiencia energetica relacionadas con los ODS escogidos",
+      "descripcion": ""
+    },
+    {
+      "id": 2,
+      "titulo": "Herramientas para la eficiencia energetica en el ODS 7",
+      "descripcion": "Existen varias herramientas para mejorar la eficiencia energética, como los sistemas de gestión de energía (SGE), que permiten monitorear y optimizar el consumo de energía en edificios y procesos industriales. Además, las aplicaciones de domótica pueden ayudar a controlar el uso de energía en hogares, ajustando la iluminación, calefacción y refrigeración según las necesidades."
+    },
+    {
+      "id": 3,
+      "titulo": "Herramientas para la eficiencia energetica en el ODS 15",
+      "descripcion": "Para el ODS 15, las herramientas pueden incluir software de monitoreo ambiental que ayuda a rastrear la salud de los ecosistemas terrestres, aplicaciones de agricultura de precisión que optimizan el uso de recursos en la agricultura sostenible, y plataformas de gestión de recursos naturales que facilitan la conservación y restauración de los ecosistemas."
+    }
+  ],
+
+  "herramientasDonar": [
+    {
+      "id": 1,
+      "titulo": "Herramientas para donar relacionadas con los ODS escogidos",
+      "descripcion": ""
+    },
+    {
+      "id": 2,
+      "titulo": "Herramientas para donar en el ODS 7",
+      "descripcion": "Para apoyar el ODS 7, se pueden utilizar plataformas de donación en línea como GlobalGiving o JustGiving, que permiten a los donantes contribuir a proyectos de energía renovable y acceso a la energía en comunidades desfavorecidas."
+    },
+    {
+      "id": 3,
+      "titulo": "Herramientas para donar en el ODS 15",
+      "descripcion": "Para el ODS 15, las herramientas de donación pueden incluir plataformas como World Wildlife Fund (WWF) o Conservation International, que permiten a los donantes apoyar proyectos de conservación de ecosistemas terrestres y protección de la biodiversidad."
     }
   ]
 }

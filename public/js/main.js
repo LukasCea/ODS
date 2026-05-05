@@ -1,16 +1,34 @@
-import { getAcciones, postAccion } from './api.js';
+import { getDatos } from "./api.js";
 
-const formulario = document.querySelector('#miFormulario');
+async function cargarPaginaExplicacionODS() {
+    const datos = await getDatos('contenido_inicial');
 
-formulario.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const nombre = document.querySelector('#nombre').value;
-    if (nombre === "") return alert("El nombre es obligatorio");
+    if (datos) {
+        const infoPersonal = datos.find(item => item.id === 1);
+        const contenedorPersonal = document.getElementById('descripcion-personal');
 
-    const datos = { nombre: nombre, fecha: new Date() };
+        if (contenedorPersonal && infoPersonal) {
+            contenedorPersonal.innerHTML = `
+            <img src="https://www.pixartprinting.it/blog/wp-content/uploads/2021/06/1_Mona_Lisa_300ppi.jpg" alt="Mona Lisa">
+                <article>
+                    <h2>Descripcion personal</h2>
+                    <p>${infoPersonal.descripcion}</p>
+                </article>
+            `;
+        }
 
-    await postAccion(datos);
-    alert("¡Acción guardada!");
-    actualizarVista();
-});
+        const objetivoPagina = datos.find(item => item.id === 2);
+        const contenedorObjetivo = document.getElementById('objetivo-web');
+
+        if (contenedorObjetivo && objetivoPagina) {
+            contenedorObjetivo.innerHTML = `
+                <article>
+                    <h2>Objetivo de la pagina web</h2>
+                    <p>${objetivoPagina.descripcion}</p>
+                </article>
+            `;
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', cargarPaginaExplicacionODS);
