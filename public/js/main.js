@@ -2,6 +2,7 @@ import { getDatos } from "./api.js";
 
 async function cargarPaginaInicial() {
     const datos = await getDatos('contenido_inicial');
+    if(!datos) return;
 
     if (datos) {
         const infoPersonal = datos.find(item => item.id === 1);
@@ -33,6 +34,7 @@ async function cargarPaginaInicial() {
 
 async function cargarPaginaExplicacionODS() {
     const datos = await getDatos('explicacionODS');
+    if(!datos) return;
 
     if (datos) {
         const titulo = datos.find(item => item.id === 1);
@@ -68,6 +70,7 @@ async function cargarPaginaExplicacionODS() {
 
 async function cargarPaginaProblemas() {
     const datos = await getDatos('problemasODS');
+    if(!datos) return;
 
     if (datos) {
         const titulo = datos.find(item => item.id === 1);
@@ -103,6 +106,7 @@ async function cargarPaginaProblemas() {
 
 async function cargarPaginaSostenibilidad() {
     const datos = await getDatos('practicasSostenibles');
+    if(!datos) return;
 
     if (datos) {
         const titulo = datos.find(item => item.id === 1);
@@ -138,6 +142,7 @@ async function cargarPaginaSostenibilidad() {
 
 async function cargarPaginaEficiente() {
     const datos = await getDatos('programacionEficiente');
+    if(!datos) return;
 
     if (datos) {
         const titulo = datos.find(item => item.id === 1);
@@ -173,6 +178,7 @@ async function cargarPaginaEficiente() {
 
 async function cargarPaginaEmpresa() {
     const datos = await getDatos('analisisEmpresa');
+    if(!datos) return;
 
     if (datos) {
         const titulo = datos.find(item => item.id === 1);
@@ -208,6 +214,7 @@ async function cargarPaginaEmpresa() {
 
 async function cargarPaginaInventario() {
     const datos = await getDatos('herramientasEficienciaEnergetica');
+    if(!datos) return;
 
     if (datos) {
         const titulo = datos.find(item => item.id === 1);
@@ -243,6 +250,7 @@ async function cargarPaginaInventario() {
 
 async function cargarPaginaHerramientas() {
     const datos = await getDatos('herramientasDonar');
+    if(!datos) return;
 
     if (datos) {
         const titulo = datos.find(item => item.id === 1);
@@ -275,19 +283,34 @@ async function cargarPaginaHerramientas() {
         }
     }
 }
- 
-document.addEventListener('DOMContentLoaded', cargarPaginaInicial);
 
-document.addEventListener('DOMContentLoaded', cargarPaginaExplicacionODS);
+function router() {
+    const path = window.location.pathname;
 
-document.addEventListener('DOMContentLoaded', cargarPaginaProblemas);
+    if (path.includes("index.html") || path === "/") {
+        cargarPaginaInicial();
+    } else if (path.includes("01-explicacionODS.html")) {
+        cargarPaginaExplicacionODS();
+    } else if (path.includes("02-problemasODS.html")) {
+        cargarPaginaProblemas();
+    } else if (path.includes("03-practicasSostenibles.html")) {
+        cargarPaginaSostenibilidad();
+    } else if (path.includes("04-programacionEficiente.html")) {
+        cargarPaginaEficiente();
+    } else if (path.includes("05-analisisEmpresa.html")) {
+        cargarPaginaEmpresa();
+    } else if (path.includes("06-ODS6.html")) {
+        cargarPaginaODS6();
+    } else if (path.includes("07-ODS7.html")) {
+        cargarPaginaODS7();
+    } else if (path.includes("08-ODS8.html")) {
+        cargarPaginaODS8();
+    } else if (path.includes("09-inventarioEnergeticos.html")) {
+        cargarPaginaInventario();
+    } else if (path.includes("10-herramientasDonar.html")) {
+        cargarPaginaHerramientas();
+    }
 
-document.addEventListener('DOMContentLoaded', cargarPaginaSostenibilidad);
+}
 
-document.addEventListener('DOMContentLoaded', cargarPaginaEficiente);
-
-document.addEventListener('DOMContentLoaded', cargarPaginaEmpresa);
-
-document.addEventListener('DOMContentLoaded', cargarPaginaInventario);
-
-document.addEventListener('DOMContentLoaded', cargarPaginaHerramientas);
+document.addEventListener('DOMContentLoaded', router);
