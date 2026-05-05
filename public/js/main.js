@@ -1,6 +1,6 @@
 import { getDatos } from "./api.js";
 
-async function cargarPaginaExplicacionODS() {
+async function cargarPaginaInicial() {
     const datos = await getDatos('contenido_inicial');
 
     if (datos) {
@@ -31,4 +31,263 @@ async function cargarPaginaExplicacionODS() {
     }
 }
 
+async function cargarPaginaExplicacionODS() {
+    const datos = await getDatos('explicacionODS');
+
+    if (datos) {
+        const titulo = datos.find(item => item.id === 1);
+        const contenedorTitulo = document.getElementById('titulo-explicacion');
+        
+        if (contenedorTitulo && titulo) {
+            contenedorTitulo.innerHTML = `
+                <h1>${titulo.descripcion}</h1>
+            `;
+        }
+
+        const ODS7 = datos.find(item => item.id === 2);
+        const contenedorODS7 = document.getElementById('explicacion-ODS7');
+
+        if (contenedorODS7 && ODS7) {
+            contenedorODS7.innerHTML = `
+                <h2>${ODS7.titulo}</h2>
+                <p>${ODS7.descripcion}</p>
+            `;
+        }
+
+        const ODS15 = datos.find(item => item.id === 3);
+        const contenedorODS15 = document.getElementById('explicacion-ODS15');
+
+        if (contenedorODS15 && ODS15) {
+            contenedorODS15.innerHTML = `
+                <h2>${ODS15.titulo}</h2>
+                <p>${ODS15.descripcion}</p>
+            `;
+        }
+    }
+}
+
+async function cargarPaginaProblemas() {
+    const datos = await getDatos('problemasODS');
+
+    if (datos) {
+        const titulo = datos.find(item => item.id === 1);
+        const contenedorTitulo = document.getElementById('titulo-problemas');
+
+        if (contenedorTitulo && titulo) {
+            contenedorTitulo.innerHTML = `
+                <h1>${titulo.descripcion}</h1>
+            `;
+        }
+
+        const ODS7 = datos.find(item => item.id === 2);
+        const contenedorODS7 = document.getElementById('problemas-ODS7');
+
+        if (contenedorODS7 && ODS7) {
+            contenedorODS7.innerHTML = `
+                <h2>${ODS7.titulo}</h2>
+                <p>${ODS7.descripcion}</p>
+            `;
+        }
+
+        const ODS15 = datos.find(item => item.id === 3);
+        const contenedorODS15 = document.getElementById('problemas-ODS15');
+
+        if (contenedorODS15 && ODS15) {
+            contenedorODS15.innerHTML = `
+                <h2>${ODS15.titulo}</h2>
+                <p>${ODS15.descripcion}</p>
+            `;
+        }
+    }
+}
+
+async function cargarPaginaSostenibilidad() {
+    const datos = await getDatos('practicasSostenibles');
+
+    if (datos) {
+        const titulo = datos.find(item => item.id === 1);
+        const contenedorTitulo = document.getElementById('titulo-sostenibilidad');
+
+        if (contenedorTitulo && titulo) {
+            contenedorTitulo.innerHTML = `
+                <h1>${titulo.descripcion}</h1>
+            `;
+        }
+
+        const ODS7 = datos.find(item => item.id === 2);
+        const contenedorODS7 = document.getElementById('sostenibilidad-ODS7');
+
+        if (contenedorODS7 && ODS7) {
+            contenedorODS7.innerHTML = `
+                <h2>${ODS7.titulo}</h2>
+                <p>${ODS7.descripcion}</p>
+            `;
+        }
+
+        const ODS15 = datos.find(item => item.id === 3);
+        const contenedorODS15 = document.getElementById('sostenibilidad-ODS15');
+
+        if (contenedorODS15 && ODS15) {
+            contenedorODS15.innerHTML = `
+                <h2>${ODS15.titulo}</h2>
+                <p>${ODS15.descripcion}</p>
+            `;
+        }
+    }
+}
+
+async function cargarPaginaEficiente() {
+    const datos = await getDatos('programacionEficiente');
+
+    if (datos) {
+        const titulo = datos.find(item => item.id === 1);
+        const contenedorTitulo = document.getElementById('titulo-eficiencia');
+
+        if (contenedorTitulo && titulo) {
+            contenedorTitulo.innerHTML = `
+                <h1>${titulo.descripcion}</h1>
+            `;
+        }
+
+        const ODS7 = datos.find(item => item.id === 2);
+        const contenedorODS7 = document.getElementById('eficiencia-ODS7');
+
+        if (contenedorODS7 && ODS7) {
+            contenedorODS7.innerHTML = `
+                <h2>${ODS7.titulo}</h2>
+                <p>${ODS7.descripcion}</p>
+            `;
+        }
+
+        const ODS15 = datos.find(item => item.id === 3);
+        const contenedorODS15 = document.getElementById('eficiencia-ODS15');
+
+        if (contenedorODS15 && ODS15) {
+            contenedorODS15.innerHTML = `
+                <h2>${ODS15.titulo}</h2>
+                <p>${ODS15.descripcion}</p>
+            `;
+        }
+    }
+}
+
+async function cargarPaginaEmpresa() {
+    const datos = await getDatos('analisisEmpresa');
+
+    if (datos) {
+        const titulo = datos.find(item => item.id === 1);
+        const contenedorTitulo = document.getElementById('titulo-empresa');
+
+        if (contenedorTitulo && titulo) {
+            contenedorTitulo.innerHTML = `
+                <h1>${titulo.descripcion}</h1>
+            `;
+        }
+
+        const ODS7 = datos.find(item => item.id === 2);
+        const contenedorODS7 = document.getElementById('empresa-ODS7');
+
+        if (contenedorODS7 && ODS7) {
+            contenedorODS7.innerHTML = `
+                <h2>${ODS7.titulo}</h2>
+                <p>${ODS7.descripcion}</p>
+            `;
+        }
+
+        const ODS15 = datos.find(item => item.id === 3);
+        const contenedorODS15 = document.getElementById('empresa-ODS15');
+
+        if (contenedorODS15 && ODS15) {
+            contenedorODS15.innerHTML = `
+                <h2>${ODS15.titulo}</h2>
+                <p>${ODS15.descripcion}</p>
+            `;
+        }
+    }
+}
+
+async function cargarPaginaInventario() {
+    const datos = await getDatos('herramientasEficienciaEnergetica');
+
+    if (datos) {
+        const titulo = datos.find(item => item.id === 1);
+        const contenedorTitulo = document.getElementById('titulo-inventario');
+
+        if (contenedorTitulo && titulo) {
+            contenedorTitulo.innerHTML = `
+                <h1>${titulo.descripcion}</h1>
+            `;
+        }
+
+        const ODS7 = datos.find(item => item.id === 2);
+        const contenedorODS7 = document.getElementById('inventario-ODS7');
+
+        if (contenedorODS7 && ODS7) {
+            contenedorODS7.innerHTML = `
+                <h2>${ODS7.titulo}</h2>
+                <p>${ODS7.descripcion}</p>
+            `;
+        }
+
+        const ODS15 = datos.find(item => item.id === 3);
+        const contenedorODS15 = document.getElementById('inventario-ODS15');
+
+        if (contenedorODS15 && ODS15) {
+            contenedorODS15.innerHTML = `
+                <h2>${ODS15.titulo}</h2>
+                <p>${ODS15.descripcion}</p>
+            `;
+        }
+    }
+}
+
+async function cargarPaginaHerramientas() {
+    const datos = await getDatos('herramientasDonar');
+
+    if (datos) {
+        const titulo = datos.find(item => item.id === 1);
+        const contenedorTitulo = document.getElementById('titulo-herramientas');
+
+        if (contenedorTitulo && titulo) {
+            contenedorTitulo.innerHTML = `
+                <h1>${titulo.descripcion}</h1>
+            `;
+        }
+
+        const ODS7 = datos.find(item => item.id === 2);
+        const contenedorODS7 = document.getElementById('herramientas-ODS7');
+
+        if (contenedorODS7 && ODS7) {
+            contenedorODS7.innerHTML = `
+                <h2>${ODS7.titulo}</h2>
+                <p>${ODS7.descripcion}</p>
+            `;
+        }
+
+        const ODS15 = datos.find(item => item.id === 3);
+        const contenedorODS15 = document.getElementById('herramientas-ODS15');
+
+        if (contenedorODS15 && ODS15) {
+            contenedorODS15.innerHTML = `
+                <h2>${ODS15.titulo}</h2>
+                <p>${ODS15.descripcion}</p>
+            `;
+        }
+    }
+}
+ 
+document.addEventListener('DOMContentLoaded', cargarPaginaInicial);
+
 document.addEventListener('DOMContentLoaded', cargarPaginaExplicacionODS);
+
+document.addEventListener('DOMContentLoaded', cargarPaginaProblemas);
+
+document.addEventListener('DOMContentLoaded', cargarPaginaSostenibilidad);
+
+document.addEventListener('DOMContentLoaded', cargarPaginaEficiente);
+
+document.addEventListener('DOMContentLoaded', cargarPaginaEmpresa);
+
+document.addEventListener('DOMContentLoaded', cargarPaginaInventario);
+
+document.addEventListener('DOMContentLoaded', cargarPaginaHerramientas);
