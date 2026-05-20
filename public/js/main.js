@@ -1,4 +1,5 @@
 import { getDatos } from "./api.js";
+import { inicializarTema } from "./temas.js";
 
 async function cargarPaginaInicial() {
     const datos = await getDatos('contenido_inicial');
@@ -285,6 +286,7 @@ async function cargarPaginaHerramientas() {
 }
 
 function router() {
+    inicializarTema();
     const path = window.location.pathname;
 
     if (path.includes("index.html") || path === "/") {
