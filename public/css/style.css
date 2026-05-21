@@ -250,7 +250,7 @@ body.light-mode main strong {
 }
 
 /* Barra vertical justo a la izquierda del h2 */
-body.light-mode h2 {
+body.light-mode h2, body.light-mode h1 {
     border-left: 5px solid #16803d !important;
     padding-left: 15px !important;
     margin-top: 0;
@@ -276,4 +276,12 @@ body.light-mode #btn-theme-toggle {
     border: 1px solid #e2e8f0;
     border-right: none;
     box-shadow: -4px 4px 20px rgba(148, 163, 184, 0.2);
+}
+
+/* 8. Adaptación Completa del Footer (¡Corregido!) */
+body.light-mode footer {
+    background-color: rgba(255, 255, 255, 0.95) !important; /* Fondo claro a juego con la Navbar */
+    color: #475569 !important;                              /* Texto gris oscuro elegante */
+    border-top: 1px solid #e2e8f0 !important;                /* Línea divisoria muy sutil */
+    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.01);         /* Sombra ligera hacia arriba */
 }
