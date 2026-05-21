@@ -160,6 +160,71 @@ footer {
     padding-right: 22px;
 }
 
+/* --- DISEÑO DEL FORMULARIO INTEGRADO (MODO OSCURO BASE) --- */
+#seccion-registro-exclusivo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.beneficios-lista {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+.beneficios-lista li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.input-grupo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-grupo label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--detalle-amarillo);
+}
+
+.input-grupo input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: var(--fondo-principal);
+    color: var(--texto-principal);
+    font-family: 'Inter', sans-serif;
+    transition: var(--transicion);
+}
+
+.input-grupo input:focus {
+    outline: none;
+    border-color: var(--detalle-amarillo);
+}
+
+.btn-verde-registro {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--detalle-amarillo);
+    color: #121417;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: var(--transicion);
+}
+
+.btn-verde-registro:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(241, 213, 146, 0.2);
+}
+
 /* 2. Configuración del Fondo de Pantalla (Verde Suave Exterior) */
 body.light-mode {
     background-color: #eef3ef; /* El fondo verde salvia que unifica el espacio exterior */
@@ -284,4 +349,36 @@ body.light-mode footer {
     color: #475569 !important;                              /* Texto gris oscuro elegante */
     border-top: 1px solid #e2e8f0 !important;                /* Línea divisoria muy sutil */
     box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.01);         /* Sombra ligera hacia arriba */
+}
+
+body.light-mode .input-grupo label {
+    color: #16803d; /* Cambia a verde en modo claro */
+}
+
+body.light-mode .input-grupo input {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #0f172a;
+}
+
+body.light-mode .input-grupo input:focus {
+    border-color: #16803d;
+}
+
+body.light-mode .btn-verde-registro {
+    background-color: #16803d;
+    color: #ffffff;
+}
+
+body.light-mode .btn-verde-registro:hover {
+    background-color: #15803d;
+    box-shadow: 0 4px 12px rgba(22, 128, 61, 0.2);
+}
+
+/* Responsivo para el formulario */
+@media (max-width: 768px) {
+    #seccion-registro-exclusivo {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
