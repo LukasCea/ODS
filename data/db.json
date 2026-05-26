@@ -3,12 +3,12 @@
     {
       "id": 1,
       "titulo": "Descripcion personal",
-      "descripcion": "Soy un estudioante de Desarrollo de Aplicaciones Web de ITB, con un entusiasmo por la tecnologia, nacido en Lituania, en el 2007 y mudado a España en el 2012."
+      "descripcion": "Soy un estudiante de Desarrollo de Aplicaciones Web de ITB, con un entusiasmo por la tecnologia y la programacion, nacido en Lituania, en el 2007 y mudado a España en el 2012."
     },
     {
       "id": 2,
       "titulo": "Objetivo de la pagina web",
-      "descripcion": "El objetivo de esta pagina web es la explicacion de los Objetivos de Desarrollo Sostenible (ODS) y su importancia en el contexto actual, las ODS escogidas han sido: (Energia asequible y no contaminante) y (Vida de ecosistemas terrestres. Tambien aportare acciones sostenibles en mi web y propronde opciones para una vida mas sostenible."
+      "descripcion": "El objetivo de esta página web es la divulgación de los Objetivos de Desarrollo Sostenible (ODS), centrándonos en el ODS 7 y el ODS 15. Para cumplir con el marco ASG, nuestra aplicación genera un impacto en tres niveles: Ambiental, mediante herramientas de inventariado energético que promueven la eficiencia; Social, al concienciar a los ciudadanos y ofrecer utilidades de donación directa; y de Gobernanza, garantizando la transparencia de los datos recolectados en el servidor."
     }
   ],
 
@@ -39,48 +39,47 @@
     {
       "id": 2,
       "titulo": "Problemas relacionados con el ODS 7",
-      "descripcion": "El ODS 7 enfrenta varios desafíos, como la dependencia de los combustibles fósiles, la falta de acceso a la energía en muchas regiones del mundo, la desigualdad en el acceso a la energía entre países y dentro de ellos, y la necesidad de una transición rápida hacia fuentes de energía renovable para mitigar el cambio climático."
+      "descripcion": "El ODS 7 enfrenta varios desafíos, como la dependencia de los combustibles fósiles, la falta de acceso a la energía en muchas regiones del mundo, la desigualdad en el acceso a la energía entre países y dentro de ellos, y la necesidad de una transición rápida hacia fuentes de energía renovable para mitigar el cambio climático. Para ayudar a mitigar esto, nuestra aplicación incluye un Inventario Energético y herramientas de Programación Eficiente, permitiendo a empresas y usuarios auditar sus consumos, reducir el desperdicio informático y transicionar hacia prácticas digitales de menor demanda energética."
     },
     {
       "id": 3,
       "titulo": "Problemas relacionados con el ODS 15",
-      "descripcion": "El ODS 15 enfrenta problemas como la deforestación, la degradación del suelo, la pérdida de biodiversidad, la desertificación y el cambio climático. Estos problemas amenazan la salud de los ecosistemas terrestres y ponen en riesgo los servicios que proporcionan, lo que afecta negativamente a las comunidades humanas y a la vida en el planeta."
+      "descripcion": "El ODS 15 enfrenta problemas como la deforestación, la degradación del suelo, la pérdida de biodiversidad, la desertificación y el cambio climático. Estos problemas amenazan la salud de los ecosistemas terrestres y ponen en riesgo los servicios que proporcionan, lo que afecta negativamente a las comunidades humanas y a la vida en el planeta. Nuestra plataforma aborda este reto mediante la sección de Prácticas Sostenibles y Herramientas Donar, facilitando canales directos para que los ciudadanos apoyen económicamente a proyectos de reforestación activa y conservación de la biodiversidad local."
     }
   ],
 
   "practicasSostenibles": [
     {
       "id": 1,
-      "titulo": "Practicas sostenibles relacionadas con los ODS escogidos",
-      "descripcion": "Practicas sostenibles relacionadas con los ODS escogidos"
+      "titulo": "Prácticas Sostenibles",
+      "descripcion": "Compromiso de Desarrollo Sostenible - Hábitos profesionales aplicados en el diseño y programación de la aplicación web."
     },
     {
       "id": 2,
-      "titulo": "Practicas sostenibles para el ODS 7",
-      "descripcion": "Para contribuir al ODS 7, se pueden adoptar prácticas como el uso de energía renovable (solar, eólica, hidroeléctrica), la mejora de la eficiencia energética en hogares y empresas, la promoción del transporte sostenible (bicicletas, vehículos eléctricos) y la implementación de políticas que fomenten la transición hacia una matriz energética más limpia."
+      "titulo": "Gestión de Hardware y Filosofía 'Zero Paper'",
+      "descripcion": "Durante la creación de este proyecto no se ha impreso código ni apuntes en papel, gestionando toda la documentación de forma digital. Además, se realiza un apagado total de las estaciones de trabajo y monitores al finalizar cada sesión de desarrollo, eliminando el consumo de energía fantasma en el aula."
     },
     {
       "id": 3,
-      "titulo": "Practicas sostenibles para el ODS 15",
-      "descripcion": "Para apoyar el ODS 15, se pueden implementar prácticas como la reforestación, la conservación de áreas naturales, la agricultura sostenible, la reducción del uso de pesticidas y fertilizantes químicos, y la promoción de la biodiversidad a través de jardines urbanos y espacios verdes."
+      "titulo": "Entorno Cloud y Optimización del Código",
+      "descripcion": "Se han centralizado los recursos mediante el uso de repositorios en la nube, mitigando desplazamientos físicos innecesarios. Asimismo, la maquetación del archivo style.css se ha optimizado de forma limpia para reducir los ciclos de procesamiento del navegador, promoviendo criterios eficientes de Green Computing."
     }
   ],
 
   "programacionEficiente": [
-    {
-      "id": 1,
-      "titulo": "Programacion eficiente relacionada con los ODS escogidos",
-      "descripcion": "Programacion eficiente relacionada con los ODS escogidos"
+    {"id": 1,
+      "titulo": "Programación Eficiente y Green Computing",
+      "descripcion": "Programación Eficiente y Green Computing"
     },
     {
       "id": 2,
-      "titulo": "Programacion eficiente para el ODS 7",
-      "descripcion": "En el contexto del ODS 7, la programación eficiente puede incluir el desarrollo de software para optimizar el uso de energía en dispositivos electrónicos, la creación de aplicaciones que promuevan el uso de transporte sostenible o la implementación de algoritmos que mejoren la eficiencia energética en sistemas de gestión de energía."
+      "titulo": "Optimización de Software y Algoritmia Eficiente",
+      "descripcion": "El desarrollo de software sostenible se enfoca en crear algoritmos de menor complejidad computacional. Al reducir las iteraciones innecesarias en los bucles y optimizar las funciones en JavaScript, conseguimos que el procesador ejecute las tareas consumiendo menos ciclos de CPU, minimizando de forma directa el consumo energético del hardware."
     },
     {
       "id": 3,
-      "titulo": "Programacion eficiente para el ODS 15",
-      "descripcion": "Para el ODS 15, la programación eficiente puede involucrar el desarrollo de herramientas para monitorear y analizar la biodiversidad, la creación de plataformas para promover prácticas agrícolas sostenibles o la implementación de sistemas de gestión de recursos naturales que ayuden a conservar los ecosistemas terrestres."
+      "titulo": "Monitorización y Métricas de Rendimiento Informático",
+      "descripcion": "Para asegurar la sostenibilidad de un sistema es indispensable medir su impacto. Utilizando herramientas de monitorización y auditorías de rendimiento (como las DevTools de Chrome), podemos analizar el consumo de memoria RAM, la carga de procesamiento y los tiempos de renderizado de los estilos CSS, garantizando un entorno web Eco-Tech altamente eficiente."
     }
   ],
 
@@ -88,17 +87,17 @@
     {
       "id": 1,
       "titulo": "Analisis de una empresa relacionada con los ODS escogidos",
-      "descripcion": "Analisis de una empresa relacionada con los ODS escogidos"
+      "descripcion": "Análisis de Sostenibilidad Empresarial"
     },
     {
       "id": 2,
-      "titulo": "Analisis de una empresa relacionada con el ODS 7",
-      "descripcion": "Una empresa que contribuye al ODS 7 es Tesla, Inc. Tesla se dedica a la fabricación de vehículos eléctricos y soluciones de energía renovable. La empresa ha revolucionado la industria automotriz al ofrecer vehículos eléctricos de alto rendimiento y ha promovido la adopción de energías limpias a través de sus productos solares y sistemas de almacenamiento de energía."
+      "titulo": "ODS 7: Impacto Sostenible en Tesla, Inc.",
+      "descripcion": "Tesla acelera la transición hacia la energía sostenible mediante la fabricación de vehículos eléctricos y ecosistemas de generación solar. Según su Informe de Sostenibilidad Oficial, la empresa mide su impacto reduciendo toneladas de CO₂ equivalentes en la atmósfera. Sus principales grupos de interés son sus clientes (usuarios eco-responsables), sus trabajadores (fomentando la seguridad en las gigafactorías) y las comunidades locales donde opera mediante la gestión responsable de residuos de baterías."
     },
     {
       "id": 3,
-      "titulo": "Analisis de una empresa relacionada con el ODS 15",
-      "descripcion": "Una empresa que apoya el ODS 15 es Patagonia, Inc. Patagonia es una empresa de ropa y equipo para actividades al aire libre que se compromete a la sostenibilidad ambiental. La empresa utiliza materiales reciclados en sus productos, promueve prácticas agrícolas sostenibles y dona parte de sus ganancias a organizaciones que trabajan en la conservación de los ecosistemas terrestres."
+      "titulo": "ODS 15: Impacto Sostenible en Patagonia, Inc.",
+      "descripcion": "Patagonia destaca en la preservación de ecosistemas terrestres utilizando materiales 100% reciclados y donando el 1% de sus ventas totales a causas ambientales activas. Miden su impacto auditando estrictamente su huella ecológica y su cadena de suministro. Sus grupos de interés clave incluyen a los clientes (concienciados con el consumo lento), sus trabajadores (bajo políticas de comercio justo) y la comunidad local global a la que protegen financiando el activismo medioambiental de base."
     }
   ],
 
