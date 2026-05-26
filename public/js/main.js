@@ -213,6 +213,114 @@ async function cargarPaginaEmpresa() {
     }
 }
 
+async function cargarPaginaAgenda() {
+    const datos = await getDatos('agendaEventos');
+    if(!datos) return;
+
+    if (datos) {
+        const titulo = datos.find(item => item.id === 1);
+        const contenedorTitulo = document.getElementById('titulo-agenda');
+
+        if (contenedorTitulo && titulo) {
+            contenedorTitulo.innerHTML = `
+                <h1>${titulo.descripcion}</h1>
+            `;
+        }
+
+        const ODS7 = datos.find(item => item.id === 2);
+        const contenedorODS7 = document.getElementById('agenda-ODS7');
+
+        if (contenedorODS7 && ODS7) {
+            contenedorODS7.innerHTML = `
+                <h2>${ODS7.titulo}</h2>
+                <p>${ODS7.descripcion}</p>
+            `;
+        }
+
+        const ODS15 = datos.find(item => item.id === 3);
+        const contenedorODS15 = document.getElementById('agenda-ODS15');
+
+        if (contenedorODS15 && ODS15) {
+            contenedorODS15.innerHTML = `
+                <h2>${ODS15.titulo}</h2>
+                <p>${ODS15.descripcion}</p>
+            `;
+        }
+    }
+}
+
+async function cargarPaginaEstadisticas() {
+    const datos = await getDatos('estadisticasMundo');
+    if(!datos) return;
+
+    if (datos) {
+        const titulo = datos.find(item => item.id === 1);
+        const contenedorTitulo = document.getElementById('titulo-estadisticas');
+
+        if (contenedorTitulo && titulo) {
+            contenedorTitulo.innerHTML = `
+                <h1>${titulo.descripcion}</h1>
+            `;
+        }
+
+        const ODS7 = datos.find(item => item.id === 2);
+        const contenedorODS7 = document.getElementById('estadisticas-ODS7');
+
+        if (contenedorODS7 && ODS7) {
+            contenedorODS7.innerHTML = `
+                <h2>${ODS7.titulo}</h2>
+                <p>${ODS7.descripcion}</p>
+            `;
+        }
+
+        const ODS15 = datos.find(item => item.id === 3);
+        const contenedorODS15 = document.getElementById('estadisticas-ODS15');
+
+        if (contenedorODS15 && ODS15) {
+            contenedorODS15.innerHTML = `
+                <h2>${ODS15.titulo}</h2>
+                <p>${ODS15.descripcion}</p>
+            `;
+        }
+    }
+}
+
+async function cargarPaginaConsejos() {
+    const datos = await getDatos('consejosTech');
+    if(!datos) return;
+
+    if (datos) {
+        const titulo = datos.find(item => item.id === 1);
+        const contenedorTitulo = document.getElementById('titulo-consejos');
+
+        if (contenedorTitulo && titulo) {
+            contenedorTitulo.innerHTML = `
+                <h1>${titulo.descripcion}</h1>
+            `;
+        }
+
+        const ODS7 = datos.find(item => item.id === 2);
+        const contenedorODS7 = document.getElementById('consejos-ODS7');
+
+        if (contenedorODS7 && ODS7) {
+            contenedorODS7.innerHTML = `
+                <h2>${ODS7.titulo}</h2>
+                <p>${ODS7.descripcion}</p>
+            `;
+        }
+
+        const ODS15 = datos.find(item => item.id === 3);
+        const contenedorODS15 = document.getElementById('consejos-ODS15');
+
+        if (contenedorODS15 && ODS15) {
+            contenedorODS15.innerHTML = `
+                <h2>${ODS15.titulo}</h2>
+                <p>${ODS15.descripcion}</p>
+            `;
+        }
+    }
+}
+
 async function cargarPaginaInventario() {
     const datos = await getDatos('herramientasEficienciaEnergetica');
     if(!datos) return;
@@ -301,12 +409,12 @@ function router() {
         cargarPaginaEficiente();
     } else if (path.includes("05-analisisEmpresa.html")) {
         cargarPaginaEmpresa();
-    } else if (path.includes("06-ODS6.html")) {
-        cargarPaginaODS6();
-    } else if (path.includes("07-ODS7.html")) {
-        cargarPaginaODS7();
-    } else if (path.includes("08-ODS8.html")) {
-        cargarPaginaODS8();
+    } else if (path.includes("06-agendaEventos.html")) {
+        cargarPaginaAgenda("agendaEventos");
+    } else if (path.includes("07-estadisticasMundo.html")) {
+        cargarPaginaEstadisticas("estadisticasMundo");
+    } else if (path.includes("08-consejosTech.html")) {
+        cargarPaginaConsejos("consejosTech");
     } else if (path.includes("09-inventarioEnergeticos.html")) {
         cargarPaginaInventario();
     } else if (path.includes("10-herramientasDonar.html")) {

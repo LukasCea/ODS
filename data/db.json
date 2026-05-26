@@ -101,6 +101,60 @@
     }
   ],
 
+  "agendaEventos": [
+    {
+      "id": 1,
+      "titulo": "Ignorado por el script",
+      "descripcion": "Agenda de Eventos y Concienciación Verde"
+    },
+    {
+      "id": 2,
+      "titulo": "ODS 7: Webinar de Auditorías Energéticas Domésticas",
+      "descripcion": "Taller virtual abierto al público enfocado en enseñar a los ciudadanos a interpretar su factura eléctrica, identificar consumos fantasma y aplicar soluciones de micro-generación solar aislada en entornos urbanos."
+    },
+    {
+      "id": 3,
+      "titulo": "ODS 15: Jornada Local de Reforestación Activa",
+      "descripcion": "Convocatoria comunitaria para la plantación de especies arbóreas autóctonas en zonas degradadas. Esta acción mitiga la erosión del suelo y promueve la recuperación de corredores biológicos locales."
+    }
+  ],
+
+  "estadisticasMundo": [
+    {
+      "id": 1,
+      "titulo": "Ignorado por el script",
+      "descripcion": "Estadísticas Globales e Impacto Ambiental"
+    },
+    {
+      "id": 2,
+      "titulo": "ODS 7: La Huella Crítica del Almacenamiento Digital",
+      "descripcion": "Los centros de datos mundiales e infraestructuras de red consumen actualmente cerca del 2% de la electricidad global. Se estima que para el año 2030 esta demanda se duplique, haciendo indispensable la transición hacia servidores alimentados por energías 100% renovables."
+    },
+    {
+      "id": 3,
+      "titulo": "ODS 15: Alerta por Deforestación y Pérdida de Suelo",
+      "descripcion": "Cada año se pierden aproximadamente 10 millones de hectáreas de bosque a nivel mundial debido a la expansión agrícola e industrial. Esta degradación del ecosistema terrestre reduce drásticamente la capacidad de absorción de CO₂ del planeta."
+    }
+  ],
+
+  "consejosTech": [
+    {
+      "id": 1,
+      "titulo": "Ignorado por el script",
+      "descripcion": "Consejos Tecnológicos Eco-Friendly"
+    },
+    {
+      "id": 2,
+      "titulo": "ODS 7: Optimización del Almacenamiento en la Nube",
+      "descripcion": "Limpiar periódicamente correos electrónicos antiguos, vaciar la papelera y eliminar archivos duplicados en la nube mitiga directamente la necesidad de mantener activos miles de discos duros en servidores que consumen energía ininterrumpida."
+    },
+    {
+      "id": 3,
+      "titulo": "ODS 15: Reciclaje y Ciclo de Vida del Hardware",
+      "descripcion": "Evitar el desecho prematuro de dispositivos informáticos y acudir a puntos verdes autorizados para el reciclaje de componentes evita que metales pesados contaminen los suelos y acuíferos terrestres, apoyando directamente la salud de los ecosistemas."
+    }
+  ],
+
   "herramientasEficienciaEnergetica": [
     {
       "id": 1,
