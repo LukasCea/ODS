@@ -424,6 +424,40 @@ body.light-mode .btn-verde-registro:hover {
     }
 }
 
+.form-oculto {
+    display: none !important;
+}
+/* --- EL MODAL FLOTANTE (REPARACIÓN) --- */
+
+/* Esta clase oculta por completo la ventana flotante */
+.modal-oculto {
+    display: none !important;
+}
+
+/* Esta clase hace que el fondo se vuelva oscuro y bloquee la pantalla */
+.capa-superpuesta-auth {
+    position: fixed !important;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75) !important; /* Fondo translúcido */
+    z-index: 9999 !important; /* Asegura que flote por encima de TODO */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* La tarjeta blanca/oscura que flota en el medio */
+.contenedor-autenticacion {
+    background-color: var(--fondo-secundario) !important;
+    border: 1px solid #333;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+}
+
 
 section:empty {
     display: none !important;
