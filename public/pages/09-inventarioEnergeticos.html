@@ -8,58 +8,77 @@
     <script type="module" src="../js/main.js"></script>
 </head>
 <body>
-    <button id="btn-theme-toggle">☀️ Modo Claro</button>
-    <header>
+<header>
         <nav class="navbar">
-            <a href="../index.html">Inicio</a>
-            <a href="01-explicacionODS.html">Explicación ODS</a>
-            <a href="02-problemasODS.html">Problemas ODS</a>
-            <a href="03-practicasSostenibles.html">Prácticas Sostenibles</a>
-            <a href="04-programacionEficiente.html">Programación Eficiente</a>
-            <a href="05-analisisEmpresa.html">Análisis Empresa</a>
-            <a href="06-agendaEventos.html">Agenda de Eventos</a>
-            <a href="07-estadisticasMundo.html">Estadísticas del Mundo</a>
-            <a href="08-consejosTech.html">Consejos Tecnológicos</a>
-            <a href="09-inventarioEnergeticos.html">Inventario Energéticos</a>
-            <a href="10-herramientasDonar.html">Herramientas Donar</a>
+            <div class="nav-enlaces">
+                <a href="../index.html">Inicio</a>
+                <a href="01-explicacionODS.html">Explicación ODS</a>
+                <a href="02-problemasODS.html">Problemas ODS</a>
+                <a href="03-practicasSostenibles.html">Prácticas Sostenibles</a>
+                <a href="04-programacionEficiente.html">Programación Eficiente</a>
+                <a href="05-analisisEmpresa.html">Análisis Empresa</a>
+                <a href="06-agendaEventos.html">Agenda de Eventos</a>
+                <a href="07-estadisticasMundo.html">Estadísticas del Mundo</a>
+                <a href="08-consejosTech.html">Consejos Tecnológicos</a>
+                <a href="09-inventarioEnergeticos.html">Inventario Energéticos</a>
+                <a href="10-herramientasDonar.html">Herramientas Donar</a>
+            </div>
+
+            <div class="nav-acciones">
+                <button id="btn-theme-toggle">☀️ Modo Claro</button>
+                <button id="btn-abrir-miembros" class="btn-miembro-nav">👤 Zona Miembros</button>
+            </div>
         </nav>
     </header>
     <main>
         <section id="titulo-inventario"></section>
         <section id="inventario-ODS7"></section>
-        <section id="seccion-registro-exclusivo">
-            <div class="registro-contenido">
-                <h2>Contenido Exclusivo para Miembros</h2>
-                <p>Regístrate de forma totalmente gratuita para desbloquear el <strong>Inventario Energético Avanzado</strong> y el panel de <strong>Herramientas de Donación</strong>.</p>
-
-                <ul class="beneficios-lista">
-                    <li>📊 Acceso completo al panel de inventario.</li>
-                    <li>🌱 Acceso a donar o solicitar donaciones en el panel de herramientas.</li>
-                </ul>
-            </div>
-
-            <div class="registro-formulario-caja">
-                <article class="formulario-tarjeta">
-                    <form id="form-registro-miembro">
-                        <div class="input-grupo">
-                            <label for="reg-nombre">Nombre de pila</label>
-                            <input type="text" id="reg-nombre" name="nombre" placeholder="Ej. Alex" required>
-                        </div>
-
-                        <div class="input-grupo">
-                            <label for="reg-email">Correo Electrónico</label>
-                            <input type="email" id="reg-email" name="email" placeholder="alex@gmail.com" required>
-                        </div>
-
-                        <button type="submit" class="btn-verde-registro">Unirme a la comunidad</button>
-                    </form>
-                </article>
-            </div>
-        </section>
+        <section id="seccion-registro-exclusivo"></section>
         <section id="inventario-ODS15"></section>
     </main>
     <footer>
         <p>&copy; 2026 Mi Sitio Web. Todos los derechos reservados.</p>
     </footer>
+
+    
+    
+        <div id="modal-miembros" class="modal-oculto">
+        <div class="modal-contenido">
+            <span id="btn-cerrar-modal">&times;</span>
+            
+            <div class="pestanas-autenticacion">
+                <button id="tab-login" class="tab-activa">Iniciar Sesión</button>
+                <button id="tab-registro">Registrarse</button>
+            </div>
+
+            <form id="form-login">
+                <h3>Acceso Eco-Tech</h3>
+                <div class="grupo-input">
+                    <label for="login-email">Correo Electrónico</label>
+                    <input type="email" id="login-email" required placeholder="tu@email.com">
+                </div>
+                <button type="submit" class="btn-enviar-auth">Entrar</button>
+            </form>
+
+            <form id="form-registro" class="form-oculto">
+                <h3>Crear Cuenta de Miembro</h3>
+                <div class="grupo-input">
+                    <label for="reg-nombre">Nombre de pila</label>
+                    <input type="text" id="reg-nombre" required placeholder="Ej. Lukas"> 
+                </div>
+                <div class="grupo-input">
+                    <label for="reg-email">Correo Electrónico</label>
+                    <input type="email" id="reg-email" required placeholder="tu@email.com"> 
+                </div>
+                <button type="submit" class="btn-enviar-auth">Dar de Alta gratis</button>
+            </form>
+
+            <div id="usuario-logeado-info" class="form-oculto">
+                <h3 id="saludo-usuario">¡Hola, miembro!</h3>
+                <p>Gracias por apoyar activamente los marcos ASG y la concienciación de los ODS.</p>
+                <button id="btn-logout" class="btn-enviar-auth">Cerrar Sesión</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

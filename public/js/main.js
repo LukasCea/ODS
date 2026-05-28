@@ -33,8 +33,8 @@ async function cargarPaginaInicial() {
     }
 }
 
-async function cargarPaginaExplicacionODS() {
-    const datos = await getDatos('explicacionODS');
+async function cargarPaginaExplicacionODS(nodo = 'explicacionODS') {
+    const datos = await getDatos(nodo);
     if(!datos) return;
 
     if (datos) {
@@ -105,8 +105,8 @@ async function cargarPaginaProblemas() {
     }
 }
 
-async function cargarPaginaSostenibilidad() {
-    const datos = await getDatos('practicasSostenibles');
+async function cargarPaginaSostenibilidad(nodo = 'practicasSostenibles') {
+    const datos = await getDatos(nodo);
     if(!datos) return;
 
     if (datos) {
@@ -357,8 +357,8 @@ async function cargarPaginaInventario() {
     }
 }
 
-async function cargarPaginaHerramientas() {
-    const datos = await getDatos('herramientasDonar');
+async function cargarPaginaHerramientasDonar(nodo = 'herramientasDonar') {
+    const datos = await getDatos(nodo);
     if(!datos) return;
 
     if (datos) {
@@ -393,6 +393,182 @@ async function cargarPaginaHerramientas() {
     }
 }
 
+// =======================================================
+// LÓGICA COMPLETA DE AUTENTICACIÓN Y REGISTRO (POST)
+// =======================================================
+
+function inicializarZonaMiembros() {
+    // 1. Buscamos los elementos del modal (Página 10)
+    const btnAbrir = document.getElementById("btn-abrir-miembros");
+    const modal = document.getElementById("modal-miembros");
+    const btnCerrar = document.getElementById("btn-cerrar-modal");
+    
+    const tabLogin = document.getElementById("tab-login");
+    const tabRegistro = document.getElementById("tab-registro");
+    
+    const formLogin = document.getElementById("form-login");
+    const formRegistroModal = document.getElementById("form-registro");
+    const infoLogeado = document.getElementById("usuario-logeado-info");
+    const saludoUsuario = document.getElementById("saludo-usuario");
+    const btnLogout = document.getElementById("btn-logout");
+
+    // 2. Buscamos el formulario incrustado (Página 09)
+    const formRegistroPagina09 = document.getElementById("form-registro-miembro");
+
+    const API_URL = "/api/usuarios";
+
+    // --- FUNCIÓN INTERNA COMPARTIDA PARA HACER EL REGISTRO ---
+    async function procesarRegistro(nombre, email) {
+        try {
+            // Verificar si ya existe el correo
+            const respuestaVerificar = await fetch(API_URL);
+            const usuariosExistentes = await respuestaVerificar.json();
+            
+            const existe = usuariosExistentes.find(u => u.email === email);
+            if (existe) {
+                alert("Este correo electrónico ya está registrado.");
+                return;
+            }
+
+            // Hacer el POST a db.json
+            const nuevoUsuario = { nombre, email };
+            const respuestaPost = await fetch(API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(nuevoUsuario)
+            });
+
+            if (respuestaPost.ok) {
+                alert(`¡Cuenta Eco-Tech creada con éxito! Bienvenido/a, ${nombre}.`);
+                localStorage.setItem("usuarioSesion", JSON.stringify(nuevoUsuario));
+                verificarSesionActiva();
+            }
+        } catch (error) {
+            console.error("Error al registrar el usuario:", error);
+            alert("Error de conexión. Asegúrate de que json-server esté encendido.");
+        }
+    }
+
+    // --- ESCUCHA DE EVENTOS ---
+
+    // Evento para el formulario de la Página 09 (Incrustado)
+    if (formRegistroPagina09) {
+        formRegistroPagina09.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const nombre = document.getElementById("reg-nombre").value.trim();
+            const email = document.getElementById("reg-email").value.trim();
+            await procesarRegistro(nombre, email);
+        });
+    }
+
+    // Si no existen los elementos del modal (Página 10), detenemos aquí el resto de eventos de forma segura
+    if (!btnAbrir || !modal) {
+        verificarSesionActiva();
+        return;
+    }
+
+    // Eventos del Modal (Página 10)
+    btnAbrir.addEventListener("click", () => {
+        modal.classList.add("mostrar");
+        verificarSesionActiva();
+    });
+
+    if (btnCerrar) {
+        btnCerrar.addEventListener("click", () => {
+            modal.classList.remove("mostrar");
+        });
+    }
+
+    if (tabLogin && tabRegistro && formLogin && formRegistroModal) {
+        tabLogin.addEventListener("click", () => {
+            tabLogin.classList.add("tab-activa");
+            tabRegistro.classList.remove("tab-activa");
+            formLogin.classList.remove("form-oculto");
+            formRegistroModal.classList.add("form-oculto");
+        });
+
+        tabRegistro.addEventListener("click", () => {
+            tabRegistro.classList.add("tab-activa");
+            tabLogin.classList.remove("tab-activa");
+            formRegistroModal.classList.remove("form-oculto");
+            formLogin.classList.add("form-oculto");
+        });
+    }
+
+    if (formRegistroModal) {
+        formRegistroModal.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const nombre = document.getElementById("reg-nombre").value.trim();
+            const email = document.getElementById("reg-email").value.trim();
+            await procesarRegistro(nombre, email);
+        });
+    }
+
+    if (formLogin) {
+        formLogin.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const email = document.getElementById("login-email").value.trim();
+
+            try {
+                const respuesta = await fetch(API_URL);
+                const usuarios = await respuesta.json();
+                const usuarioValido = usuarios.find(u => u.email === email);
+
+                if (usuarioValido) {
+                    alert(`¡Bienvenido de nuevo, ${usuarioValido.nombre}!`);
+                    localStorage.setItem("usuarioSesion", JSON.stringify(usuarioValido));
+                    verificarSesionActiva();
+                } else {
+                    alert("El correo electrónico no se encuentra registrado.");
+                }
+            } catch (error) {
+                console.error("Error en el inicio de sesión:", error);
+            }
+        });
+    }
+
+    if (btnLogout) {
+        btnLogout.addEventListener("click", () => {
+            localStorage.removeItem("usuarioSesion");
+            alert("Sesión finalizada de forma segura.");
+            verificarSesionActiva();
+        });
+    }
+
+    // 6. COMPROBACIÓN RECURRENTE DE ESTADO
+    function verificarSesionActiva() {
+        const sesionGuardada = localStorage.getItem("usuarioSesion");
+
+        if (sesionGuardada) {
+            const usuario = JSON.parse(sesionGuardada);
+            if (formLogin) formLogin.classList.add("form-oculto");
+            if (formRegistroModal) formRegistroModal.classList.add("form-oculto");
+            if (tabLogin) tabLogin.classList.add("form-oculto");
+            if (tabRegistro) tabRegistro.classList.add("form-oculto");
+            
+            if (infoLogeado) infoLogeado.classList.remove("form-oculto");
+            if (saludoUsuario) saludoUsuario.textContent = `👋 ¡Hola de nuevo, ${usuario.nombre}!`;
+            if (btnAbrir) btnAbrir.textContent = `👤 Miembro: ${usuario.nombre}`;
+            
+            // Si estamos en la página 9, podemos ocultar el formulario incrustado al estar logeado
+            if (formRegistroPagina09) {
+                formRegistroPagina09.parentElement.innerHTML = `<h3>✅ Ya eres miembro activo: ${usuario.nombre}</h3>`;
+            }
+        } else {
+            if (tabLogin) tabLogin.classList.remove("form-oculto");
+            if (tabRegistro) tabRegistro.classList.remove("form-oculto");
+            if (infoLogeado) infoLogeado.classList.add("form-oculto");
+            
+            if (tabLogin) tabLogin.click();
+            if (btnAbrir) btnAbrir.textContent = "👤 Zona Miembros";
+            if (formLogin) formLogin.reset();
+            if (formRegistroModal) formRegistroModal.reset();
+        }
+    }
+    
+    verificarSesionActiva();
+}
+
 function router() {
     inicializarTema();
     const path = window.location.pathname;
@@ -416,11 +592,17 @@ function router() {
     } else if (path.includes("08-consejosTech.html")) {
         cargarPaginaConsejos("consejosTech");
     } else if (path.includes("09-inventarioEnergeticos.html")) {
-        cargarPaginaInventario();
+        // Ajustado para que cargue tu página 09 usando la función de herramientasDonar o la que desees
+        cargarPaginaInventario("herramientasEficienciaEnergetica");
     } else if (path.includes("10-herramientasDonar.html")) {
-        cargarPaginaHerramientas();
+        cargarPaginaHerramientasDonar("herramientasDonar");
     }
 
+    // Activamos de forma segura la escucha del modal flotante
+    inicializarZonaMiembros();
 }
 
-document.addEventListener('DOMContentLoaded', router);
+
+window.addEventListener("DOMContentLoaded", () => {
+    router();
+});

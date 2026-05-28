@@ -11,7 +11,6 @@
       "descripcion": "El objetivo de esta página web es la divulgación de los Objetivos de Desarrollo Sostenible (ODS), centrándonos en el ODS 7 y el ODS 15. Para cumplir con el marco ASG, nuestra aplicación genera un impacto en tres niveles: Ambiental, mediante herramientas de inventariado energético que promueven la eficiencia; Social, al concienciar a los ciudadanos y ofrecer utilidades de donación directa; y de Gobernanza, garantizando la transparencia de los datos recolectados en el servidor."
     }
   ],
-
   "explicacionODS": [
     {
       "id": 1,
@@ -29,7 +28,6 @@
       "descripcion": "El ODS 15 se enfoca en proteger, restaurar y promover el uso sostenible de los ecosistemas terrestres, gestionar de manera sostenible los bosques, combatir la desertificación, detener e invertir la degradación de la tierra y detener la pérdida de biodiversidad. Este objetivo es esencial para mantener la salud del planeta, ya que los ecosistemas terrestres proporcionan servicios vitales como la regulación del clima, la purificación del agua, la producción de alimentos y el hábitat para la biodiversidad. El ODS 15 busca conservar y restaurar los ecosistemas terrestres para garantizar un futuro sostenible para las generaciones presentes y futuras."
     }
   ],
-
   "problemasODS": [
     {
       "id": 1,
@@ -47,7 +45,6 @@
       "descripcion": "El ODS 15 enfrenta problemas como la deforestación, la degradación del suelo, la pérdida de biodiversidad, la desertificación y el cambio climático. Estos problemas amenazan la salud de los ecosistemas terrestres y ponen en riesgo los servicios que proporcionan, lo que afecta negativamente a las comunidades humanas y a la vida en el planeta. Nuestra plataforma aborda este reto mediante la sección de Prácticas Sostenibles y Herramientas Donar, facilitando canales directos para que los ciudadanos apoyen económicamente a proyectos de reforestación activa y conservación de la biodiversidad local."
     }
   ],
-
   "practicasSostenibles": [
     {
       "id": 1,
@@ -65,9 +62,9 @@
       "descripcion": "Se han centralizado los recursos mediante el uso de repositorios en la nube, mitigando desplazamientos físicos innecesarios. Asimismo, la maquetación del archivo style.css se ha optimizado de forma limpia para reducir los ciclos de procesamiento del navegador, promoviendo criterios eficientes de Green Computing."
     }
   ],
-
   "programacionEficiente": [
-    {"id": 1,
+    {
+      "id": 1,
       "titulo": "Programación Eficiente y Green Computing",
       "descripcion": "Programación Eficiente y Green Computing"
     },
@@ -82,7 +79,6 @@
       "descripcion": "Para asegurar la sostenibilidad de un sistema es indispensable medir su impacto. Utilizando herramientas de monitorización y auditorías de rendimiento (como las DevTools de Chrome), podemos analizar el consumo de memoria RAM, la carga de procesamiento y los tiempos de renderizado de los estilos CSS, garantizando un entorno web Eco-Tech altamente eficiente."
     }
   ],
-
   "analisisEmpresa": [
     {
       "id": 1,
@@ -100,7 +96,6 @@
       "descripcion": "Patagonia destaca en la preservación de ecosistemas terrestres utilizando materiales 100% reciclados y donando el 1% de sus ventas totales a causas ambientales activas. Miden su impacto auditando estrictamente su huella ecológica y su cadena de suministro. Sus grupos de interés clave incluyen a los clientes (concienciados con el consumo lento), sus trabajadores (bajo políticas de comercio justo) y la comunidad local global a la que protegen financiando el activismo medioambiental de base."
     }
   ],
-
   "agendaEventos": [
     {
       "id": 1,
@@ -118,7 +113,6 @@
       "descripcion": "Convocatoria comunitaria para la plantación de especies arbóreas autóctonas en zonas degradadas. Esta acción mitiga la erosión del suelo y promueve la recuperación de corredores biológicos locales."
     }
   ],
-
   "estadisticasMundo": [
     {
       "id": 1,
@@ -136,7 +130,6 @@
       "descripcion": "Cada año se pierden aproximadamente 10 millones de hectáreas de bosque a nivel mundial debido a la expansión agrícola e industrial. Esta degradación del ecosistema terrestre reduce drásticamente la capacidad de absorción de CO₂ del planeta."
     }
   ],
-
   "consejosTech": [
     {
       "id": 1,
@@ -154,7 +147,6 @@
       "descripcion": "Evitar el desecho prematuro de dispositivos informáticos y acudir a puntos verdes autorizados para el reciclaje de componentes evita que metales pesados contaminen los suelos y acuíferos terrestres, apoyando directamente la salud de los ecosistemas."
     }
   ],
-
   "herramientasEficienciaEnergetica": [
     {
       "id": 1,
@@ -172,7 +164,6 @@
       "descripcion": "Para el ODS 15, las herramientas pueden incluir software de monitoreo ambiental que ayuda a rastrear la salud de los ecosistemas terrestres, aplicaciones de agricultura de precisión que optimizan el uso de recursos en la agricultura sostenible, y plataformas de gestión de recursos naturales que facilitan la conservación y restauración de los ecosistemas."
     }
   ],
-
   "herramientasDonar": [
     {
       "id": 1,
@@ -188,6 +179,13 @@
       "id": 3,
       "titulo": "Herramientas para donar en el ODS 15",
       "descripcion": "Para el ODS 15, las herramientas de donación pueden incluir plataformas como World Wildlife Fund (WWF) o Conservation International, que permiten a los donantes apoyar proyectos de conservación de ecosistemas terrestres y protección de la biodiversidad."
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1779956290356,
+      "nombre": "lukas",
+      "email": "lukas.ceasandoval.7e9@itb.cat"
     }
   ]
 }

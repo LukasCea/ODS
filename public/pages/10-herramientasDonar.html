@@ -28,9 +28,51 @@
         <section id="titulo-herramientas"></section>
         <section id="herramientas-ODS7"></section>
         <section id="herramientas-ODS15"></section>
+        
+        
     </main>
     <footer>
         <p>&copy; 2026 Mi Sitio Web. Todos los derechos reservados.</p>
     </footer>
+    <button id="btn-abrir-miembros">👤 Zona Miembros</button>
+    
+        <div id="modal-miembros" class="modal-oculto">
+        <div class="modal-contenido">
+            <span id="btn-cerrar-modal">&times;</span>
+            
+            <div class="pestanas-autenticacion">
+                <button id="tab-login" class="tab-activa">Iniciar Sesión</button>
+                <button id="tab-registro">Registrarse</button>
+            </div>
+
+            <form id="form-login">
+                <h3>Acceso Eco-Tech</h3>
+                <div class="grupo-input">
+                    <label for="login-email">Correo Electrónico</label>
+                    <input type="email" id="login-email" required placeholder="tu@email.com">
+                </div>
+                <button type="submit" class="btn-enviar-auth">Entrar</button>
+            </form>
+
+            <form id="form-registro" class="form-oculto">
+                <h3>Crear Cuenta de Miembro</h3>
+                <div class="grupo-input">
+                    <label for="reg-nombre">Nombre de pila</label>
+                    <input type="text" id="reg-nombre" required placeholder="Ej. Lukas"> 
+                </div>
+                <div class="grupo-input">
+                    <label for="reg-email">Correo Electrónico</label>
+                    <input type="email" id="reg-email" required placeholder="tu@email.com"> 
+                </div>
+                <button type="submit" class="btn-enviar-auth">Dar de Alta gratis</button>
+            </form>
+
+            <div id="usuario-logeado-info" class="form-oculto">
+                <h3 id="saludo-usuario">¡Hola, miembro!</h3>
+                <p>Gracias por apoyar activamente los marcos ASG y la concienciación de los ODS.</p>
+                <button id="btn-logout" class="btn-enviar-auth">Cerrar Sesión</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

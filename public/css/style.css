@@ -382,3 +382,10 @@ body.light-mode .btn-verde-registro:hover {
         gap: 20px;
     }
 }
+
+
+section:empty {
+    display: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
