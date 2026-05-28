@@ -183,9 +183,20 @@
   ],
   "usuarios": [
     {
-      "id": 1779956290356,
-      "nombre": "lukas",
-      "email": "lukas.ceasandoval.7e9@itb.cat"
+      "id": 1716904539123,
+      "nombre": "Lukas",
+      "email": "lukas.ceasandoval.7e9@itb.cat",
+      "accionCircular": "Donar/Compartir Herramienta",
+      "elemento": "Taladro Percutor de Batería de 12V",
+      "fechaRegistro": "28/5/2026"
+    },
+    {
+      "id": 1779971395192,
+      "nombre": "pipas",
+      "email": "pipas09@asd.com",
+      "accionCircular": "Donar/Compartir Herramienta",
+      "elemento": "pala",
+      "fechaRegistro": "28/5/2026"
     }
   ]
 }

@@ -417,8 +417,95 @@ function inicializarZonaMiembros() {
 
     const API_URL = "/api/usuarios";
 
+    // --- FUNCIÓN PARA LEER Y RENDERIZAR LOS MIEMBROS EN PANTALLA ---
+async function renderizarListaUsuarios() {
+    // 1. Buscamos si ya existe el contenedor de la lista en la pantalla
+    let contenedorLista = document.getElementById("seccion-lista-comunidad");
+    
+    // 2. Si no existe, lo creamos e insertamos estratégicamente ANTES del footer
+    if (!contenedorLista) {
+        const mainElement = document.querySelector("main");
+        if (mainElement) {
+            const cajaLista = document.createElement("section");
+            cajaLista.id = "seccion-lista-comunidad";
+            
+            // Forzamos comportamiento de bloque y espaciados externos neutros
+            cajaLista.style.width = "100%";
+            cajaLista.style.display = "block";
+            cajaLista.style.marginTop = "40px";
+            cajaLista.style.padding = "0 15px";
+            cajaLista.style.boxSizing = "border-box";
+            
+            cajaLista.innerHTML = `
+                <div class="tarjeta-comunidad-wrapper">
+                    <h2 class="titulo-seccion" style="width: 100%; display: block; margin-top: 0; margin-bottom: 10px;">🌱 Comunidad Eco-Tech Activa</h2>
+                    
+                    <p class="descripcion-seccion" style="width: 100%; display: block; margin-bottom: 25px;">
+                        Datos en tiempo real de los miembros que colaboran con la Gobernanza y la Economía Circular (ASG):
+                    </p>
+                    
+                    <div class="tabla-contenedor" style="width: 100%;">
+                        <table class="tabla-usuarios" style="width: 100%; table-layout: auto; border-collapse: collapse;">
+                            <thead>
+                                <tr>
+                                    <th>👤 Miembro</th>
+                                    <th>📧 Correo Electrónico</th>
+                                    <th>♻️ Acción Circular</th>
+                                    <th>📦 Elemento</th>
+                                </tr>
+                            </thead>
+                            <tbody id="lista-miembros-comunidad-body">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+            
+            mainElement.appendChild(cajaLista);
+        }
+    }
+
+    // 3. Obtenemos el cuerpo de la tabla para rellenarlo con los datos del servidor
+    const tablaBody = document.getElementById("lista-miembros-comunidad-body");
+    if (!tablaBody) return;
+
+    try {
+        const respuesta = await fetch("/api/usuarios");
+        const usuarios = await respuesta.json();
+
+        if (usuarios.length === 0) {
+            tablaBody.innerHTML = `
+                <tr>
+                    <td colspan="4" style="text-align: center; padding: 25px;" class="texto-vacio">
+                        Aún no hay miembros registrados en esta simulación. ¡Sé el primero!
+                    </td>
+                </tr>`;
+            return;
+        }
+
+        // Mapeamos los usuarios e inyectamos filas estructuradas de tabla (<tr>)
+        tablaBody.innerHTML = usuarios.map(u => `
+            <tr>
+                <td data-label="Miembro" class="celda-nombre">${u.nombre}</td>
+                <td data-label="Correo">${u.email}</td>
+                <td data-label="Acción">${u.accionCircular || 'Colaboración Sostenible'}</td>
+                <td data-label="Elemento"><code>${u.elemento || 'Herramienta'}</code></td>
+            </tr>
+        `).join("");
+
+    } catch (error) {
+        console.error("Error al renderizar la lista de usuarios:", error);
+        tablaBody.innerHTML = `
+            <tr>
+                <td colspan="4" style="text-align: center; color: #ef4444; padding: 25px;">
+                    ❌ Error al conectar con el servidor. Por favor, inicia el json-server.
+                </td>
+            </tr>`;
+    }
+}
+
     // --- FUNCIÓN INTERNA COMPARTIDA PARA HACER EL REGISTRO ---
-    async function procesarRegistro(nombre, email) {
+    async function procesarRegistro(nombre, email, accionCircular, elemento) {
         try {
             // Verificar si ya existe el correo
             const respuestaVerificar = await fetch(API_URL);
@@ -431,7 +518,13 @@ function inicializarZonaMiembros() {
             }
 
             // Hacer el POST a db.json
-            const nuevoUsuario = { nombre, email };
+            const nuevoUsuario = { 
+                nombre, 
+                email, 
+                accionCircular, 
+                elemento 
+            };
+
             const respuestaPost = await fetch(API_URL, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -439,13 +532,15 @@ function inicializarZonaMiembros() {
             });
 
             if (respuestaPost.ok) {
-                alert(`¡Cuenta Eco-Tech creada con éxito! Bienvenido/a, ${nombre}.`);
+                alert(`¡Cuenta Eco-Tech creada con éxito!\nHas registrado un/a [${elemento}] para el programa de ${accionCircular}. Bienvenido/a, ${nombre}.`);
                 localStorage.setItem("usuarioSesion", JSON.stringify(nuevoUsuario));
                 verificarSesionActiva();
+                // Actualizamos la lista en pantalla inmediatamente tras registrarse
+                await renderizarListaUsuarios();
             }
         } catch (error) {
             console.error("Error al registrar el usuario:", error);
-            alert("Error de conexión. Asegúrate de que json-server esté encendido.");
+            alert("Error de conexión. Asegúrate de que el servidor Node.js esté encendido.");
         }
     }
 
@@ -457,13 +552,19 @@ function inicializarZonaMiembros() {
             e.preventDefault();
             const nombre = document.getElementById("reg-nombre").value.trim();
             const email = document.getElementById("reg-email").value.trim();
-            await procesarRegistro(nombre, email);
+            
+            // Captura select e input circular o asigna por defecto
+            const accionCircular = document.getElementById("reg-tipo-accion") ? document.getElementById("reg-tipo-accion").value : "Donar/Compartir Herramienta";
+            const elemento = document.getElementById("reg-elemento") ? document.getElementById("reg-elemento").value.trim() : "Herramienta Comunal";
+            
+            await procesarRegistro(nombre, email, accionCircular, elemento);
         });
     }
 
     // Si no existen los elementos del modal (Página 10), detenemos aquí el resto de eventos de forma segura
     if (!btnAbrir || !modal) {
         verificarSesionActiva();
+        renderizarListaUsuarios(); // Cargamos la lista de todos modos
         return;
     }
 
@@ -495,12 +596,17 @@ function inicializarZonaMiembros() {
         });
     }
 
+    // Evento para el formulario de registro del Modal (Página 10)
     if (formRegistroModal) {
         formRegistroModal.addEventListener("submit", async (e) => {
             e.preventDefault();
             const nombre = document.getElementById("reg-nombre").value.trim();
             const email = document.getElementById("reg-email").value.trim();
-            await procesarRegistro(nombre, email);
+            
+            const accionCircular = document.getElementById("reg-tipo-accion") ? document.getElementById("reg-tipo-accion").value : "Donar/Compartir Herramienta";
+            const elemento = document.getElementById("reg-elemento") ? document.getElementById("reg-elemento").value.trim() : "Herramienta Comunal";
+            
+            await procesarRegistro(nombre, email, accionCircular, elemento);
         });
     }
 
@@ -550,9 +656,12 @@ function inicializarZonaMiembros() {
             if (saludoUsuario) saludoUsuario.textContent = `👋 ¡Hola de nuevo, ${usuario.nombre}!`;
             if (btnAbrir) btnAbrir.textContent = `👤 Miembro: ${usuario.nombre}`;
             
-            // Si estamos en la página 9, podemos ocultar el formulario incrustado al estar logeado
             if (formRegistroPagina09) {
-                formRegistroPagina09.parentElement.innerHTML = `<h3>✅ Ya eres miembro activo: ${usuario.nombre}</h3>`;
+                formRegistroPagina09.parentElement.innerHTML = `
+                    <div style="text-align: center; padding: 20px;">
+                        <h3>✅ ¡Ya eres miembro activo, ${usuario.nombre}!</h3>
+                        <p style="color: var(--texto-secundario);">Gracias por aportar tu <strong>${usuario.elemento || 'dispositivo'}</strong> al programa de <strong>${usuario.accionCircular || 'Sostenibilidad'}</strong>.</p>
+                    </div>`;
             }
         } else {
             if (tabLogin) tabLogin.classList.remove("form-oculto");
@@ -566,7 +675,9 @@ function inicializarZonaMiembros() {
         }
     }
     
+    // Al cargar la función por primera vez, verificamos sesión y pintamos la lista existente
     verificarSesionActiva();
+    renderizarListaUsuarios();
 }
 
 function router() {

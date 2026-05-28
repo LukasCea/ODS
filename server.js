@@ -36,12 +36,11 @@ app.get('/api/:seccion', (req, res) => {
 
 // 2. RUTA POST NUEVA: Para registrar nuevos usuarios de forma segura
 app.post('/api/usuarios', (req, res) => {
-    console.log("Petición POST recibida en /api/usuarios con los datos:", req.body);
-    
-    const { nombre, email } = req.body;
+    const { nombre, email, accionCircular, elemento } = req.body;
 
-    if (!nombre || !email) {
-        return res.status(400).json({ mensaje: "Faltan campos obligatorios (nombre o email)" });
+    // Validación básica de campos vacíos
+    if (!nombre || !email || !accionCircular || !elemento) {
+        return res.status(400).json({ mensaje: "Faltan datos obligatorios en el formulario." });
     }
 
     try {
@@ -49,35 +48,40 @@ app.post('/api/usuarios', (req, res) => {
             return res.status(500).json({ mensaje: "Base de datos db.json no encontrada" });
         }
 
-        // Leemos el archivo actual
         const data = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'));
 
-        // Si por algún motivo no existe el array de usuarios, lo creamos
         if (!data.usuarios) {
             data.usuarios = [];
         }
 
-        // Validamos si el email ya existe en db.json
+        // Validamos si el email ya existe
         const usuarioExiste = data.usuarios.find(u => u.email === email);
         if (usuarioExiste) {
             return res.status(400).json({ mensaje: "Este correo electrónico ya está registrado." });
         }
 
-        // Creamos el nuevo objeto de usuario
-        const nuevoUsuario = { id: Date.now(), nombre, email };
+        // Creamos el nuevo objeto combinando el usuario con su aportación a la economía circular
+        const nuevoRegistro = { 
+            id: Date.now(), 
+            nombre, 
+            email,
+            accionCircular, // Ejemplo: "Reciclar Electrodoméstico"
+            elemento,       // Ejemplo: "Microondas viejo Panasonic"
+            fechaRegistro: new Date().toLocaleDateString()
+        };
         
-        // Lo añadimos al array de la base de datos
-        data.usuarios.push(nuevoUsuario);
+        // Guardamos todo junto en el array
+        data.usuarios.push(nuevoRegistro);
 
-        // Guardamos los cambios físicamente en el archivo db.json
+        // Escribimos físicamente los cambios en el archivo db.json
         fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2), 'utf8');
 
-        console.log(`¡Usuario ${nombre} registrado con éxito!`);
-        res.status(201).json(nuevoUsuario);
+        console.log(`¡Ítem circular registrado con éxito por ${nombre}!`);
+        res.status(201).json(nuevoRegistro);
 
     } catch (error) {
-        console.error("Error al guardar el usuario en el servidor:", error);
-        res.status(500).json({ mensaje: "Error interno al procesar el registro" });
+        console.error("Error al guardar en el servidor:", error);
+        res.status(500).json({ mensaje: "Error interno del servidor al procesar el registro." });
     }
 });
 

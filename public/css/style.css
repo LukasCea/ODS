@@ -471,3 +471,86 @@ body.light-mode .btn-enviar-auth {
     background-color: #16803d !important;
     color: #ffffff !important;
 }
+
+/* ==========================================================================
+   --- ESTILOS DE LA TABLA DE COMUNIDAD (ADAPTATIVA MODO OSCURO / CLARO) ---
+   ========================================================================== */
+
+/* --- 1. CONFIGURACIÓN EN MODO OSCURO (POR DEFECTO) --- */
+.tarjeta-comunidad-wrapper {
+    background-color: var(--fondo-secundario);
+    color: var(--texto-principal);
+    padding: 30px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    width: 100%;
+    transition: var(--transicion);
+}
+
+.tarjeta-comunidad-wrapper .descripcion-seccion {
+    color: var(--texto-secundario);
+}
+
+.tabla-usuarios th {
+    text-align: left;
+    padding: 12px 8px;
+    font-weight: 600;
+    color: var(--texto-principal);
+    border-bottom: 2px solid var(--texto-secundario);
+}
+
+.tabla-usuarios td {
+    text-align: left;
+    padding: 12px 8px;
+    color: var(--texto-principal);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.tabla-usuarios .celda-nombre {
+    font-weight: 600;
+    color: var(--detalle-amarillo);
+}
+
+.tabla-usuarios code {
+    background-color: rgba(128, 128, 128, 0.15);
+    padding: 3px 6px;
+    border-radius: 4px;
+    color: var(--detalle-amarillo);
+}
+
+
+/* --- 2. CONFIGURACIÓN EN MODO CLARO (¡SOLUCIÓN AL COLOR!) --- */
+body.light-mode .tarjeta-comunidad-wrapper {
+    background-color: #ffffff !important;           /* Fondo blanco limpio para la tarjeta */
+    color: #0f172a !important;                      /* Texto principal gris oscuro/negro */
+    box-shadow: 0 4px 20px rgba(148, 163, 184, 0.15); /* Sombra suave idéntica a tus otras tarjetas */
+    border: 1px solid #e2e8f0;                       /* Borde gris sutil */
+}
+
+body.light-mode .tarjeta-comunidad-wrapper .titulo-seccion {
+    color: #16803d !important;                      /* Tu verde corporativo del modo claro */
+}
+
+body.light-mode .tarjeta-comunidad-wrapper .descripcion-seccion {
+    color: #475569 !important;                      /* Texto secundario gris corporativo */
+}
+
+body.light-mode .tabla-usuarios th {
+    color: #0f172a !important;                      /* Encabezados oscuros */
+    border-bottom: 2px solid #cbd5e1;               /* Línea divisoria de cabecera gris */
+}
+
+body.light-mode .tabla-usuarios td {
+    color: #334155 !important;                      /* Datos de la tabla en gris oscuro legible */
+    border-bottom: 1px solid #e2e8f0;               /* Separadores de fila claros */
+}
+
+body.light-mode .tabla-usuarios .celda-nombre {
+    color: #16803d !important;                      /* El nombre del usuario resaltará en verde */
+}
+
+body.light-mode .tabla-usuarios code {
+    background-color: #f1f5f9;                      /* Fondo del código gris muy claro */
+    color: #166534;                                 /* Texto del código verde oscuro */
+    border: 1px solid #cbd5e1;
+}
